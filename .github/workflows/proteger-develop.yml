@@ -1,0 +1,54 @@
+name: Protect Develop Branch
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  check-direct-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Check if push is from pull request
+        run: |
+          # Verificar se o commit atual é resultado de um merge de PR
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+
+          # Permitir commits que são merges de PR
+          if [[ "$COMMIT_MSG" == *"Merge pull request"* ]]; then
+            echo "Commit is from a merged PR, allowing..."
+            exit 0
+          fi
+
+          # Permitir commits que são reversões feitas pelo GitHub Actions
+          if [[ "$COMMIT_MSG" == "Revert"* ]]; then
+            echo "Commit is a reversion, allowing..."
+            exit 0
+          fi
+
+          # Permitir commits que são reversões feitas pelo GitHub Actions
+          if [[ "$COMMIT_MSG" == "Reapply"* ]]; then
+            echo "Commit is a reversion, allowing..."
+            exit 0
+          fi
+
+          # Permitir commits que são do próprio GitHub Actions
+          if [[ "${{ github.actor }}" == "github-actions[bot]" ]]; then
+            echo "Commit is from GitHub Actions, allowing..."
+            exit 0
+          fi
+
+          echo "::error::Não são permitidos pushes diretos para desenvolver a branch. Em vez disso, crie uma branch feature/sua-funcionalidade. Ao finalizar, o PR será criado automaticamente."
+          # Global user configuration
+          git config --global user.email "welbermsantana@gmail.com"
+          git config --global user.name "Welber"
+          # Revertendo o commit
+          git revert --no-edit HEAD
+          git push origin develop
+          exit 1

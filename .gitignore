@@ -1,0 +1,123 @@
+# -----------------------
+# Compilação Java
+# -----------------------
+*.class
+*.jar
+*.war
+*.ear
+
+# -----------------------
+# Diretórios de build
+# -----------------------
+/target/
+/bin/
+/out/
+/build/
+
+# -----------------------
+# Maven
+# -----------------------
+.log
+.mvn/timing.properties
+.settings.xml
+
+# -----------------------
+# Gradle
+# -----------------------
+.gradle/
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle-cache/
+**/build/
+
+# -----------------------
+# IDEs
+# -----------------------
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VSCode
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+.recommenders/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# -----------------------
+# SOs e arquivos de sistema
+# -----------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# -----------------------
+# Logs, temporários e caches
+# -----------------------
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*.cache
+*.pid
+*.seed
+
+# -----------------------
+# Arquivos sensíveis e de ambiente
+# -----------------------
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.p12
+*.jks
+*.keystore
+
+# -----------------------
+# Node.js (caso use semantic-release)
+# -----------------------
+node_modules/
+package-lock.json
+.npm/
+
+# -----------------------
+# Arquivos de release
+# -----------------------
+# CHANGELOG.md
+# *.release*
+
+# -----------------------
+# Husky
+# -----------------------
+# .husky/_/
+# .husky/*.lock

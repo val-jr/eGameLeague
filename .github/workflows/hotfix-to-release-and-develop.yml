@@ -1,0 +1,82 @@
+name: PR Hotfix → Release + Develop
+
+on:
+  push:
+    branches:
+      - "hotfix/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extrair nome da branch
+        id: extract
+        run: echo "HOTFIX_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Criar PR para Release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const branch = process.env.HOTFIX_BRANCH;
+
+            const existing = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${branch}`,
+              base: 'release',
+            });
+
+            if (existing.data.length === 0) {
+              const pr = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Hotfix: ${branch} → Release`,
+                head: branch,
+                base: 'release',
+                body: 'PR automático para validação rápida',
+              });
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.data.number,
+                labels: ['hotfix'],
+              });
+            }
+
+      - name: Criar PR para Develop
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const branch = process.env.HOTFIX_BRANCH;
+
+            const existing = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${branch}`,
+              base: 'develop',
+            });
+
+            if (existing.data.length === 0) {
+              const pr = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Hotfix: ${branch} → Develop`,
+                head: branch,
+                base: 'develop',
+                body: 'PR automático para sincronizar correções',
+              });
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.data.number,
+                labels: ['hotfix'],
+              });
+            }

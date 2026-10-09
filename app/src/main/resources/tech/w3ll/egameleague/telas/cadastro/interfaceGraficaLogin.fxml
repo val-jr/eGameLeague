@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="628.0" style="-fx-background-color: #44475a; -fx-border-color: #6272a4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.w3ll.egameleague.controllers.LoginController">
+   <children>
+      <Label alignment="CENTER" layoutX="202.0" layoutY="58.0" prefHeight="39.0" prefWidth="225.0" text="Fazer Login" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="126.0" text="Digite seu email" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailLoginTextField" layoutX="133.0" layoutY="147.0" prefHeight="25.0" prefWidth="363.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 4px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;" />
+      <Label layoutX="264.0" layoutY="199.0" text="Digite sua senha" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="senhaLoginTextField" layoutX="133.0" layoutY="217.0" prefHeight="26.0" prefWidth="363.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 4px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;" />
+      <TextField fx:id="senhaLoginVisivelTextField" layoutX="133.0" layoutY="217.0" managed="false" prefHeight="26.0" prefWidth="363.0" style="-fx-border-color: #6272a4; -fx-background-color: #44475a; -fx-border-radius: 16px; -fx-border-width: 4px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;" visible="false" />
+
+      <Button fx:id="botaoOlhoAbertoLogin" layoutX="503.0" layoutY="219.0" mnemonicParsing="false" onAction="#mostrarSenhaLogin" prefHeight="25.0" prefWidth="38.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4; -fx-border-width: 3px; -fx-border-radius: 16px; -fx-background-radius: 16px;" text="👁" textFill="WHITE" />
+      <Button fx:id="botaoOlhoFechadoLogin" layoutX="503.0" layoutY="219.0" managed="false" mnemonicParsing="false" onAction="#esconderSenhaLogin" prefHeight="25.0" prefWidth="38.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4; -fx-border-width: 3px; -fx-border-radius: 16px; -fx-background-radius: 16px;" text="❌" textFill="WHITE" visible="false" />
+
+            <Button fx:id="botaoFazerLogin" layoutX="205.0" layoutY="274.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4;" text="Fazer login" textFill="WHITE" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="205.0" />
+   </children>
+</AnchorPane>

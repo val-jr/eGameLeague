@@ -1,0 +1,191 @@
+{
+    -fx-background: #282a36;
+    -fx-surface: #44475a;
+    -fx-primary-accent: #8be9fd;
+    -fx-secondary-accent: #bd93f9;
+    -fx-highlight: #ff79c6;
+    -fx-text-primary: #f8f8f2;
+    -fx-text-secondary: #b0b3c2;
+    -fx-success: #50fa7b;
+    -fx-danger: #ff5555;
+}
+
+.background-pane {
+    -fx-background-color: -fx-background;
+}
+
+.main-title {
+    -fx-font-family: "Segoe UI Black", sans-serif;
+    -fx-font-size: 28px;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.rodada-title {
+    -fx-font-family: "Segoe UI Semibold", sans-serif;
+    -fx-font-size: 18px;
+    -fx-text-fill: -fx-text-primary;
+    -fx-padding: 0 0 10px 0;
+}
+
+.match-card {
+    -fx-background-color: -fx-background;
+    -fx-background-radius: 8px;
+    -fx-border-color: -fx-surface;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-padding: 14px 24px;
+}
+
+.icon-label {
+    -fx-font-family: 'Material Design Icons';
+    -fx-font-size: 18px;
+    -fx-text-fill: -fx-background;
+}
+
+.results-table-view {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.results-table-view .column-header-background {
+    -fx-background-color: derive(-fx-surface, 20%);
+    -fx-background-radius: 6px;
+}
+
+.results-table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 12px;
+}
+
+.results-table-view .column-header .label {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase;
+}
+
+.results-table-view .table-row-cell {
+    -fx-background-color: -fx-background;
+    -fx-padding: 2px 0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: derive(-fx-background, 25%);
+}
+
+.results-table-view .table-row-cell:hover {
+    -fx-background-color: derive(-fx-background, 15%);
+    -fx-cursor: hand;
+}
+
+.results-table-view .table-row-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.results-table-view .table-cell {
+    -fx-font-size: 15px;
+    -fx-border-width: 0;
+    -fx-padding: 12px;
+    -fx-text-fill: -fx-text-primary;
+    -fx-alignment: CENTER;
+}
+
+.results-table-view .winner-cell {
+    -fx-text-fill: -fx-success;
+    -fx-font-weight: bold;
+}
+
+.results-table-view .loser-cell {
+    -fx-text-fill: -fx-danger;
+}
+
+.results-table-view .placeholder .label {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 14px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+    -fx-background-color: -fx-background;
+    -fx-background-radius: 8px;
+}
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.dialog-pane-custom {
+    -fx-background-color: -fx-background;
+    -fx-border-color: derive(-fx-background, 50%);
+    -fx-border-width: 1px;
+}
+
+.dialog-pane-custom .header-panel {
+    -fx-background-color: transparent;
+}
+
+.dialog-pane-custom .content {
+    -fx-background-color: transparent;
+}
+
+.dialog-title {
+    -fx-font-family: "Segoe UI Black", sans-serif;
+    -fx-font-size: 22px;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.team-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+    -fx-cursor: hand;
+}
+
+.team-label:hover {
+    -fx-text-fill: -fx-success;
+}
+
+.winner-label, .winner .text, .winner {
+    -fx-text-fill: -fx-success;
+    -fx-fill: -fx-success;
+    -fx-font-weight: bold;
+}
+
+.loser-label, .loser .text, .loser {
+    -fx-text-fill: -fx-danger;
+    -fx-fill: -fx-danger;
+}
+
+.score-separator, .status-label {
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.botao-acao, .botao-editar, .botao-embaralhar {
+    -fx-background-color: derive(-fx-surface, 20%);
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.botao-acao, .botao-editar {
+    -fx-padding: 12px 22px;
+}
+
+.botao-embaralhar {
+    -fx-padding: 12px 16px;
+    -fx-font-size: 18px;
+}
+
+.botao-acao:hover, .botao-editar:hover, .botao-embaralhar:hover {
+    -fx-background-color: derive(-fx-surface, 40%);
+}

@@ -1,0 +1,67 @@
+name: PR Feature → Develop
+
+on:
+  push:
+    branches:
+      - "feature/**"
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extrair nome da branch
+        id: extract_branch
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Criar ou ignorar PR se já existir
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const branch = process.env.BRANCH_NAME;
+
+            // Verificar se já existe PR aberto da mesma branch
+            const existing = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              head: `${context.repo.owner}:${branch}`,
+              base: 'develop',
+            });
+
+            if (existing.data.length > 0) {
+              console.log("PR já existe para essa branch. Ignorando criação.");
+              return;
+            }
+
+            // Obter últimos commits da branch
+            const commits = await github.rest.repos.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: branch,
+              per_page: 10
+            });
+
+            const changelog = commits.data.map(commit => `- ${commit.commit.message} (${commit.sha.substring(0, 7)})`).join('\n');
+
+            // Criar novo PR como draft
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Feature: ${branch}`,
+              head: branch,
+              base: 'develop',
+              body: `### PR automático para branch \`develop\`\n\n**Commits recentes:**\n${changelog}`,
+              draft: false
+            });
+
+            // Adicionar label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.data.number,
+              labels: ['auto-pr'],
+            });

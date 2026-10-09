@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="879.0" style="-fx-background-color: #44475a; -fx-border-color: #6272a4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.w3ll.egameleague.controllers.CadastroController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="43.0" prefHeight="617.0" prefWidth="793.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="39.0" prefWidth="225.0" style="-fx-text-fill: white;" text="Cadastrar">
+               <font>
+                  <Font name="Calibri" size="33.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="100.0" />
+               </padding>
+            </Label>
+            <Label style="-fx-text-fill: white;" text="Digite seu email">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="620.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="emailTextField" prefHeight="25.0" prefWidth="363.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 3px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;">
+               <VBox.margin>
+                  <Insets left="30.0" right="40.0" />
+               </VBox.margin>
+            </TextField>
+            <Label style="-fx-text-fill: white;" text="Digite seu nome de usuario">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="550.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="usuarioTextField" prefHeight="25.0" prefWidth="363.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 3px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;">
+               <VBox.margin>
+                  <Insets left="30.0" right="40.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox prefHeight="51.0" prefWidth="883.0">
+               <children>
+                  <VBox prefHeight="51.0" prefWidth="739.0">
+                     <children>
+                        <Label style="-fx-text-fill: white;" text="Digite sua senha">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="senhaVisivelTextField" managed="false" maxWidth="728.0" prefHeight="33.0" prefWidth="728.0" style="-fx-border-color: #6272a4; -fx-background-color: #44475a; -fx-border-radius: 16px; -fx-border-width: 3px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;" visible="false" />
+                        <PasswordField fx:id="senhaTextField" prefHeight="33.0" prefWidth="728.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 3px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="31.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Button fx:id="botaoOlhoFechado" managed="false" mnemonicParsing="false" onAction="#esconderSenhaCadastro" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4; -fx-border-width: 3px; -fx-border-radius: 16px; -fx-background-radius: 16px;" text="❌" textFill="WHITE" visible="false">
+                     <HBox.margin>
+                        <Insets top="18.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="botaoOlhoAberto" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mostrarSenhaCadastro" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4; -fx-border-width: 3px; -fx-border-radius: 16px; -fx-background-radius: 16px;" text="👁" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets top="18.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+      
+            
+                  <Label style="-fx-text-fill: white;" text="Digite seu número de telefone">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="530.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="telefoneTextField" prefHeight="33.0" prefWidth="701.0" style="-fx-border-color: #6272a4; -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-radius: 16px; -fx-border-width: 3px; -fx-background-radius: 16px; -fx-padding: 5px; -fx-text-fill: white;">
+               <VBox.margin>
+                  <Insets left="30.0" right="40.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="botaoCadastrar" mnemonicParsing="false" onAction="#fazerCadastro" style="-fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #282a36, #44475a); -fx-border-color: #6272a4;" text="Cadastrar" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
